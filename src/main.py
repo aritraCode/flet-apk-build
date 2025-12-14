@@ -1,13 +1,13 @@
-
-import yfinance as yf 
-import flet as ft 
+import yfinance as yf
+import flet as ft
 
 def _price(symbol):
     symbol = symbol.strip().upper()
     try:
-        return yf.Ticker(symbol).info.get("regularMarketPrice",0)
-    except:
-        return None
+        df = yf.Ticker(symbol).history()
+        return {"close": df.iloc[-1].Close}
+    except Exception as e:
+        return {"error": str(e)}
 
 def main(page: ft.Page):
 
@@ -19,10 +19,12 @@ def main(page: ft.Page):
         if not symbol.strip():
             return
         price = _price(symbol)
-        if price is not None:
-            price_output.value = f"{symbol.strip().upper()} price: {price}"
+        if "close" in price:
+            price_output.value = f"{symbol.strip().upper()} price: {price["close"]}"
+        elif "error" in price:
+            price_output.value = f"Unable to get price for '{symbol}' due to - {price["error"]}"
         else:
-            price_output.value = f"Unable to get price for '{symbol}'"
+            price_output.value = str(price)
         page.update()
 
     page.add(ft.Column(controls=[
