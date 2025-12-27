@@ -1,5 +1,5 @@
 flet==0.28.3
-tradingview-ta
-langchain
-langgraph
-langchain-groq
+langchain==1.2.0
+langgraph==1.0.5
+langchain-groq==1.1.1
+tradingview_ta
