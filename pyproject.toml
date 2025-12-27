@@ -1,7 +1,7 @@
 [project]
-name = "test yf"
+name = "stockInfo"
 version = "1.0.0"
-description = "A notepad application with flask backend"
+description = "A simple Ai stock analysis application"
 readme = "README.md"
 requires-python = ">=3.12"
 authors = [
@@ -15,7 +15,7 @@ org = "com.mycompany"
 
 # project display name that is used as an app title on Android and iOS home screens,
 # shown in window titles and about app dialogs on desktop.
-product = "TestYF"
+product = "StockInfo"
 
 # company name to display in about app dialogs
 company = "Flet_aritracodespy"
