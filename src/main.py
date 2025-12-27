@@ -136,7 +136,8 @@ def main(page: ft.Page):
     query_input = ft.TextField(
         label="Ask about a stock",
         multiline=True,
-        min_lines=2,
+        min_lines=1,
+        max_lines=5,
         expand=True,
     )
 
@@ -174,7 +175,7 @@ def main(page: ft.Page):
         page.update()
 
     settings = ft.Column(visible=False,controls =[
-        ft.Text("Settings", size=18, weight=ft.FontWeight.BOLD),
+        ft.Text("Settings", size=16, weight=ft.FontWeight.BOLD),
         model_input,
         api_key_input,
         save_btn,
@@ -189,7 +190,7 @@ def main(page: ft.Page):
                 ft.Row(
                     alignment = ft.MainAxisAlignment.SPACE_BETWEEN,
                     controls=[
-                        ft.Text("StockInfo",size=18, weight=ft.FontWeight.BOLD),
+                        ft.Text("StockInfo",size=20, weight=ft.FontWeight.BOLD),
                         ft.IconButton(icon=ft.Icons.SETTINGS, on_click=toggle_settings)
                     ]
                 ),
