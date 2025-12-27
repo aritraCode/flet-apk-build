@@ -1,2 +1,5 @@
-flet
-yfinance
+flet==0.28.3
+tradingview-ta
+langchain
+langgraph
+langchain-groq
